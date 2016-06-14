@@ -45,14 +45,6 @@ public void OnPluginStart()
 			SDKHook(i, SDKHook_OnTakeDamage, OnTakeDamage);
 		}
 	}
-	
-	PrintToChatAll("LOLOL");
-	
-	//g_Game = GetEngineVersion();
-	//if(g_Game != Engine_CSGO && g_Game != Engine_CSS)
-	//{
-	//	SetFailState("This plugin is for CSGO/CSS only.");	
-	//}
 }
 
 public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3], int damagecustom)
