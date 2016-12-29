@@ -8,8 +8,6 @@
 #include <adminmenu>
 #include <sourcemod>
 #include <sdktools>
-#include <cstrike>
-//#include <sdkhooks>
 
 #pragma newdecls required
 
