@@ -28,9 +28,9 @@ ConVar g_DeflectTA;
 
 public Plugin myinfo = 
 {
-	name = "Nade Deflector v1.0",
+	name = "Ballistic Bouncer v1.0",
 	author = PLUGIN_AUTHOR,
-	description = "Deflect nades with shield",
+	description = "Deflect nades with ballistic shield",
 	version = PLUGIN_VERSION,
 	url = "https://github.com/Rachnus"
 };
@@ -42,18 +42,18 @@ public void OnPluginStart()
 		
 	HookEvent("weapon_fire", Event_WeaponFire);
 	
-	g_DeflectForce =      CreateConVar("nadedeflector_deflect_force",        "600",    "Amount of force to deflect nades");
-	g_MaxDeflectDist =    CreateConVar("nadedeflector_max_deflect_distance", "100",    "The max amount of distance between the grenade and the player for a deflect");
-	g_ResetGrenadeTimer = CreateConVar("nadedeflector_reset_grenade_timer",  "1",      "If enabled, grenades explosion timer will be reset after deflected (HE, Flashes, Mollies)");
-	g_DeflectDotProduct = CreateConVar("nadedeflector_dot_product",          "0.70",   "Dot between player forward angle and angle from player eyes to grenade position (The higher value, the preciser your aim has to be)", _, true, 0.0, true, 1.0);
+	g_DeflectForce =      CreateConVar("ballisticbouncer_deflect_force",        "600",    "Amount of force to deflect nades");
+	g_MaxDeflectDist =    CreateConVar("ballisticbouncer_max_deflect_distance", "100",    "The max amount of distance between the grenade and the player for a deflect");
+	g_ResetGrenadeTimer = CreateConVar("ballisticbouncer_reset_grenade_timer",  "1",      "If enabled, grenades explosion timer will be reset after deflected (HE, Flashes, Mollies)");
+	g_DeflectDotProduct = CreateConVar("ballisticbouncer_dot_product",          "0.70",   "Dot between player forward angle and angle from player eyes to grenade position (The higher value, the preciser your aim has to be)", _, true, 0.0, true, 1.0);
 	
-	g_DeflectFlash =      CreateConVar("nadedeflector_deflect_flashbang",    "1",      "If enabled, flashbangs can be deflected");
-	g_DeflectHE =         CreateConVar("nadedeflector_deflect_he",           "1",      "If enabled, HE grenades can be deflected");
-	g_DeflectMolotov =    CreateConVar("nadedeflector_deflect_molotov",      "1",      "If enabled, molotovs/incendiaries can be deflected");
-	g_DeflectSnowball =   CreateConVar("nadedeflector_deflect_snowball",     "1",      "If enabled, snowballs can be deflected");
-	g_DeflectDecoy =      CreateConVar("nadedeflector_deflect_decoy",        "1",      "If enabled, decoys can be deflected");
-	g_DeflectSmoke =      CreateConVar("nadedeflector_deflect_smoke",        "1",      "If enabled, smokes can be deflected");
-	g_DeflectTA =         CreateConVar("nadedeflector_deflect_ta",           "1",      "If enabled, TA grenades can be deflected");
+	g_DeflectFlash =      CreateConVar("ballisticbouncer_deflect_flashbang",    "1",      "If enabled, flashbangs can be deflected");
+	g_DeflectHE =         CreateConVar("ballisticbouncer_deflect_he",           "1",      "If enabled, HE grenades can be deflected");
+	g_DeflectMolotov =    CreateConVar("ballisticbouncer_deflect_molotov",      "1",      "If enabled, molotovs/incendiaries can be deflected");
+	g_DeflectSnowball =   CreateConVar("ballisticbouncer_deflect_snowball",     "1",      "If enabled, snowballs can be deflected");
+	g_DeflectDecoy =      CreateConVar("ballisticbouncer_deflect_decoy",        "1",      "If enabled, decoys can be deflected");
+	g_DeflectSmoke =      CreateConVar("ballisticbouncer_deflect_smoke",        "1",      "If enabled, smokes can be deflected");
+	g_DeflectTA =         CreateConVar("ballisticbouncer_deflect_ta",           "1",      "If enabled, TA grenades can be deflected");
 	
 	#if defined DEBUG
 	RegAdminCmd("sm_ndnade",  Command_GiveBotNade, ADMFLAG_ROOT);
